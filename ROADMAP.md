@@ -12,24 +12,34 @@
 | brickery-factory | v0.1.0 | [Release](https://github.com/suipu-boop/brickery-factory/releases/tag/v0.1.0) | chat() 启用 memory_sessions；server.py 工作区迁 ~/.brickery/factory-vault；测试补全（test_tools 17 + test_server_api 12）；修复 macOS 符号链接 relative_to bug |
 | shadeling-bricks | v0.1.0 | [Release](https://github.com/suipu-boop/shadeling-bricks/releases/tag/v0.1.0) | 新增 hello-marvis 积木（问好+报时，纯 stdlib）；index 登记 |
 
-## 待办（按优先级）
+## v0.1.0 收尾清单（2026-08-22 全部完成）
+
+- [x] 三仓库 tag + Release（brickery / brickery-factory / shadeling-bricks）
+- [x] ROADMAP 建置（本文件）
+- [x] 工坊 Pages 迁移：gh-pages 分支 + GitHub Pages 构建成功 → https://suipu-boop.github.io/brickery-workbench/
+- [x] 规格同步：brickery-factory specs/brick-factory-app.md 标记已实施、brick-vault 版标记已迁出
+- [x] 内核单权威干净构建：build_workbench_app.sh 全流程验证（.app + .dmg 生成，内嵌内核含 sessions 隔离）
+- [x] 替换临时代理：git 直连 + gh credential helper，删除含 token 的 /tmp/git_askpass.sh
+- [x] CI 自动化：brickery（内核冒烟）、brickery-factory（29 测试 + 内核依赖注入）、shadeling-bricks（12 验证闸门测试 + 全库严格验证）三仓 GitHub Actions 全部通过
+- [x] 验证闸门自动化：brick-vault tests/test_verify.py 12 例（契约/元数据/files/index/composition）
+
+## 待办（下一迭代候选）
 
 ### 高优先级
 
-- 暂无。v0.1.0 收尾完成，进入下一迭代。
+1. **brickery-workbench Release 资源**：下载站已上线 Pages，确认 v0.1.0 dmg 产物与 Release 附件一致、页面链接可用。
+2. **内核独立打包依赖**：factory 对内核仍走 BRICKERY_ROOT 本地路径注入，CI 已用 clone 兜底；下一迭代应改为 pip 依赖或 vendored 打包，去掉对本地路径的隐式依赖。
 
 ### 中优先级
 
-1. **工坊 Pages 迁移**：brickery-workbench `site/` 网页下载站迁移到 GitHub Pages，废弃本地静态服务。
-2. **规格同步**：四项目架构定稿已入 brickery-meta/ARCHITECTURE.md，各仓库 specs/ 中过时文档需对齐（brick-vault specs/brick-factory-app.md、brickery-factory specs/brick-factory-app.md）。
-3. **内核单权威落实**：工坊构建从 GitHub 拉取内核的流程已就绪，验证一次干净构建（temp/python 准备 → build_workbench_app.sh）。
+1. **引擎配置回退与容错**：多会话隔离已上线，补充引擎断连/超时/限流的重试与降级策略测试。
+2. **工坊与工厂联调**：factory 8767 端口 + 工坊 8767 端口同为 8767，核对端口规划避免冲突（swift 壳 factory 运行模式已加，需实机验证）。
 
 ### 低优先级
 
-1. **替换临时代理**：git 走本地 CONNECT 代理 127.0.0.1:18080 + /tmp/git_askpass.sh 凭据为临时方案，建议换正式 SSH key 或凭据管理器（当前 token 无 admin:public_key 权限，需先补权限）。
-2. **CI 自动化**：三仓库接入 GitHub Actions，push 后自动跑测试 + 打 tag/Release。
-3. **brick-vault 验证闸门**：积木验收闸门（brick.json 契约校验）补自动化测试。
+1. **brick-schema 词表扩展**：category/risk_level 词表约束进 verify 闸门，与内核契约常量统一（当前校验原则"缺省安全值，声明即严格校验"）。
+2. **Release 自动化发布**：CI 打通后可在 tag push 时自动构建 dmg 并发布 Release。
 
 ## 进度记录
 
-- 2026-08-22：四项目架构定稿（ARCHITECTURE.md）；brickery/brickery-factory/shadeling-bricks 推送并发布 v0.1.0。
+- 2026-08-22：四项目架构定稿（ARCHITECTURE.md）；brickery/brickery-factory/shadeling-bricks 推送并发布 v0.1.0；收尾清单全部完成，三仓库 CI 全绿。
