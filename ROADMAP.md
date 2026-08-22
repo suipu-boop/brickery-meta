@@ -43,8 +43,9 @@ AIGC:
 
 ### 中优先级
 
-1. **引擎配置回退与容错**：多会话隔离已上线，补充引擎断连/超时/限流的重试与降级策略测试。
-2. **工坊与工厂联调**：factory 8767 端口 + 工坊 8767 端口同为 8767，核对端口规划避免冲突（swift 壳 factory 运行模式已加，需实机验证）。
+1. ~~**引擎配置回退与容错**~~（2026-08-22 完成）：多会话隔离已上线，补充引擎断连/超时/限流的重试与降级策略测试（33 例全过，brickery b6e6e8e，CI 绿）。
+2. ~~**skill_library fixture 缺失（既有问题）**~~（2026-08-22 完成）：根因是 list_entries 对目录型 repo_url 的 base 拼接错削一级，相对 download_url 404；已修复（brickery c0a7599），test_skill_library 13 例全过、runtime 全量 219 通过，CI 绿。
+3. **工坊与工厂联调**：factory 8767 端口 + 工坊 8767 端口同为 8767，核对端口规划避免冲突（swift 壳 factory 运行模式已加，需实机验证）。
 
 ### 低优先级
 
@@ -56,4 +57,5 @@ AIGC:
 - 2026-08-22：四项目架构定稿（ARCHITECTURE.md）；brickery/brickery-factory/shadeling-bricks 推送并发布 v0.1.0；收尾清单全部完成，三仓库 CI 全绿。
 - 2026-08-22（续）：Release 资源核对完成（v0.1.0 dmg 替换为含 factory 运行模式的最新构建）；内核独立打包依赖完成（brickery pyproject + tag v0.1.1，factory pip git 依赖，BRICKERY_ROOT 注入移除，双仓库 CI 全绿）。
 - 2026-08-22（续2）：引擎容错与降级专项测试 33 例完成并推送（brickery b6e6e8e，CI 绿）；发现既有问题 skill_library fixture 缺失（pdf-extractor 等，6 例失败）已记入待办。
+- 2026-08-22（续3）：skill_library fixture 缺失修复完成（brickery c0a7599）：根因为目录型 repo_url 的 base 拼接错削一级，相对 download_url 404；test_skill_library 13 例全过、runtime 全量 219 通过，CI 绿。中优先级第 1、2 项完成，剩余工坊与工厂 8767 端口联调（需实机验证）。
 *（内容由AI生成，仅供参考）*
