@@ -44,18 +44,26 @@
 称呼我老板；输出禁用 emoji；核心改动先落盘 specs/*.md 供我审阅；push 前需我明确确认。
 ```
 
-## 四仓库同步状态（2026-08-22）
+## 四仓库同步状态（2026-08-22 更新）
 
 | 仓库 | 本地路径 | GitHub | 状态 |
 |------|---------|--------|------|
-| 积木工坊 | /Users/suipu/Dev/brickery-workbench | suipu-boop/brickery-workbench | 已同步 |
+| 积木工坊 | /Users/suipu/Dev/brickery-workbench | suipu-boop/brickery-workbench | 已同步；Release v0.1.0 已发布（最新 dmg 104194405 字节） |
 | 生成 agent | /Users/suipu/Dev/brickery | suipu-boop/brickery | 已同步 |
 | 积木加工厂 | /Users/suipu/Dev/brick-vault | suipu-boop/brick-vault | 已同步 |
 | 架构总览 | /Users/suipu/Dev/brickery-meta | suipu-boop/brickery-meta | 本文件所在 |
 
+## 发布记录（2026-08-22）
+
+- **brickery-workbench Release v0.1.0**：三项目拆分后重新打包，上传最新 dmg（104194405 字节）
+- **下载链接迁移**：site/index.html 全部指向 brickery-workbench 仓库 Release（旧 brickery 仓库链接已清零，commit e18b701）
+- 下载入口（镜像加速）：`https://gh-proxy.com/https://github.com/suipu-boop/brickery-workbench/releases/download/v0.1.0/BrickeryWorkbench-0.1.0.dmg`
+- 发布流程（固化）：代码改动 → 跑 `scripts/build_workbench_app.sh`（清旧重建）→ `gh release create`（/opt/homebrew/bin/gh，需写全路径）替换资产 → 网页链接不变自动生效
+- 教训：新仓库拆分后必须同步建 Release + 迁移下载链接，否则用户仍下载到旧仓库旧包
+
 ## 待办（后续推进项）
 
-- site 网页站 GitHub Pages 迁移到 brickery-workbench 仓库
+- **site GitHub Pages 迁移**：brickery-workbench 仓库启用 Pages（原 suipu-boop.github.io/brickery 域名，目标 suipu-boop.github.io/brickery-workbench），当前 site/ 已在新仓库但 Pages 未启用
 - 工坊仓库 ROADMAP 建置
-- 原 brickery 仓库历史中工坊文件的清理归档（可选）
+- 原 brickery 仓库旧 Release dmg（104193138）是否移除（避免混淆，可选）
 - 进度积木细化设计（specs/idea-progress-brick.md，已迁至工坊仓库）
