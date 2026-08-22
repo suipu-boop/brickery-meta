@@ -1,3 +1,14 @@
+---
+AIGC:
+    Label: "1"
+    ContentProducer: 001191440300708461136T1XGW3
+    ProduceID: 1ff3ab34626ddcd667748776b4e29487_a3e1e73b9e2511f1a65b525400826444
+    ReservedCode1: t73w4jU/EBvisOqjXwyR0PaDYXCdolQQbAQUqoQYFFm6yaY2GT0QPs31vv/z0lBfQlVP4X1jdY5bcqNsQ3aXprpFAoqWLmC1xKZSsyyUJLcv7qVCmZ3BgMBE3laMkIwnIvZUEzqUWFGT59y7DRApfM8T/YTegQFfpJnKScbfQhXT1FRN/oIWdZ5a0Ao=
+    ContentPropagator: 001191440300708461136T1XGW3
+    PropagateID: 1ff3ab34626ddcd667748776b4e29487_a3e1e73b9e2511f1a65b525400826444
+    ReservedCode2: t73w4jU/EBvisOqjXwyR0PaDYXCdolQQbAQUqoQYFFm6yaY2GT0QPs31vv/z0lBfQlVP4X1jdY5bcqNsQ3aXprpFAoqWLmC1xKZSsyyUJLcv7qVCmZ3BgMBE3laMkIwnIvZUEzqUWFGT59y7DRApfM8T/YTegQFfpJnKScbfQhXT1FRN/oIWdZ5a0Ao=
+---
+
 # Brickery ROADMAP
 
 > 顶层路线图。按项目记录里程碑、当前状态与待办，各仓库内部细节见各自 specs/。
@@ -27,7 +38,7 @@
 
 ### 高优先级
 
-1. **brickery-workbench Release 资源**：下载站已上线 Pages，确认 v0.1.0 dmg 产物与 Release 附件一致、页面链接可用。
+1. ~~**brickery-workbench Release 资源**~~（2026-08-22 完成）：页面链接匹配、下载 200 可用；发现附件为 09:20 旧构建（缺 16:12 factory 运行模式），已用 20:20 最新构建覆盖上传（104203004 字节与本地一致）。
 2. **内核独立打包依赖**：factory 对内核仍走 BRICKERY_ROOT 本地路径注入，CI 已用 clone 兜底；下一迭代应改为 pip 依赖或 vendored 打包，去掉对本地路径的隐式依赖。
 
 ### 中优先级
@@ -43,3 +54,5 @@
 ## 进度记录
 
 - 2026-08-22：四项目架构定稿（ARCHITECTURE.md）；brickery/brickery-factory/shadeling-bricks 推送并发布 v0.1.0；收尾清单全部完成，三仓库 CI 全绿。
+- 2026-08-22（续）：Release 资源核对完成（v0.1.0 dmg 替换为含 factory 运行模式的最新构建）；内核独立打包依赖完成（brickery pyproject + tag v0.1.1，factory pip git 依赖，BRICKERY_ROOT 注入移除，双仓库 CI 全绿）。
+*（内容由AI生成，仅供参考）*
