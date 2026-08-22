@@ -34,13 +34,26 @@
 称呼我老板；输出禁用 emoji；核心代码改动先落盘 specs/*.md 供我审阅；push/Release 前需我明确确认。
 ```
 
-## 会话三 · 积木加工厂
+## 会话三 · 积木加工厂应用
 
 ```
-读取 /Users/suipu/Dev/brickery-meta/ARCHITECTURE.md 了解三项目全局，
-然后进入 /Users/suipu/Dev/brick-vault（积木加工厂：积木库+契约+验收）：
+读取 /Users/suipu/Dev/brickery-meta/ARCHITECTURE.md 了解四项目全局，
+然后进入 /Users/suipu/Dev/brickery-factory（积木加工厂应用：独立仓库，与工坊同形态）：
+必读 specs/brick-factory-app.md、specs/multi-session.md。
+核心工作区：factory/（后端 server.py/agent.py/live_vault.py）、web/（前端）、scripts/build_factory_app.sh（构建）。
+构建产物在 output/（BrickeryFactory.app/.dmg），8767 端口运行，打开前先确认 8767 无残留占用。
+产出积木 push 进 brick-vault 后工坊/agent 才可见；工厂 agent 红线：不 push、不发布、不删已发布积木。
+称呼我老板；输出禁用 emoji；核心代码改动先落盘 specs/*.md 供我审阅；push/发布前需我明确确认。
+```
+
+## 会话四 · 积木产品库
+
+```
+读取 /Users/suipu/Dev/brickery-meta/ARCHITECTURE.md 了解四项目全局，
+然后进入 /Users/suipu/Dev/brick-vault（积木产品库：只留积木+验证闸门）：
 必读 specs/brick-schema.md（brick.json 5 字段契约）及积木目录结构。
-产出物是积木（brick.json + 内容），工坊 live_vault 直连本仓库，契约变更需通知工坊侧。
+产出物是积木（brick.json + 内容），发布前必须跑 scripts/verify_bricks.py 过闸门。
+工坊 live_vault 直连本仓库，契约变更需通知工坊侧。
 称呼我老板；输出禁用 emoji；核心改动先落盘 specs/*.md 供我审阅；push 前需我明确确认。
 ```
 
@@ -50,7 +63,8 @@
 |------|---------|--------|------|
 | 积木工坊 | /Users/suipu/Dev/brickery-workbench | suipu-boop/brickery-workbench | 已同步；Release v0.1.0 已发布（最新 dmg 104194405 字节） |
 | 生成 agent | /Users/suipu/Dev/brickery | suipu-boop/brickery | 已同步 |
-| 积木加工厂 | /Users/suipu/Dev/brick-vault | suipu-boop/brick-vault | 已同步 |
+| 积木加工厂应用 | /Users/suipu/Dev/brickery-factory | suipu-boop/brickery-factory | 已同步（Release 未发） |
+| 积木产品库 | /Users/suipu/Dev/brick-vault | suipu-boop/brick-vault | 已同步 |
 | 架构总览 | /Users/suipu/Dev/brickery-meta | suipu-boop/brickery-meta | 本文件所在 |
 
 ## 发布记录（2026-08-22）

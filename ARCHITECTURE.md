@@ -14,11 +14,12 @@
 ## 二、依赖方向（单向）
 
 ```
-积木加工厂(brick-vault) ──积木(brick.json/.brick)──▶ 积木工坊(brickery-workbench) ──组装+产出──▶ 生成 agent(brickery)
+积木加工厂应用(brickery-factory) ──生成──▶ 积木产品库(brick-vault) ──积木(brick.json/.brick)──▶ 积木工坊(brickery-workbench) ──组装+产出──▶ 生成 agent(brickery)
 ```
 
-- 加工厂产积木 → 工坊浏览选择 → 生成 agent 装配进底座 → 产出 agent 运行积木
+- 加工厂 app 产出积木 → push 进产品库 → 工坊浏览选择 → 生成 agent 装配进底座 → 产出 agent 运行积木
 - 反向不依赖：工坊/生成 agent 的改动不影响积木库内容
+- 加工厂通过 live_vault.py 直连产品库（GitHub raw，镜像兜底）拉取积木清单，见 brickery-factory/factory/live_vault.py
 
 ## 三、接口契约（跨项目联结点）
 
@@ -48,10 +49,12 @@
 /Users/suipu/Dev/
   brickery-workbench/   # 积木工坊
   brickery/             # 生成 agent
-  brick-vault/          # 积木加工厂（积木库）
+  brickery-factory/     # 积木加工厂应用（独立仓库）
+  brick-vault/          # 积木产品库（积木数据）
   brickery-meta/        # 顶层导航（本文件）
 ```
 
 ## 七、变更记录
 
+- 2026-08-22：四项目架构定稿（加工厂应用独立为 brickery-factory，brick-vault 只留积木+验证闸门）。规划见 brick-vault/specs/brick-factory-app.md、brickery-factory/specs/brick-factory-app.md
 - 2026-08-22：三项目拆分拍板（方案 A），本文件创建。规划见 brickery-workbench/specs/project-org.md
