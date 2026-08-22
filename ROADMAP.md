@@ -55,4 +55,5 @@ AIGC:
 
 - 2026-08-22：四项目架构定稿（ARCHITECTURE.md）；brickery/brickery-factory/shadeling-bricks 推送并发布 v0.1.0；收尾清单全部完成，三仓库 CI 全绿。
 - 2026-08-22（续）：Release 资源核对完成（v0.1.0 dmg 替换为含 factory 运行模式的最新构建）；内核独立打包依赖完成（brickery pyproject + tag v0.1.1，factory pip git 依赖，BRICKERY_ROOT 注入移除，双仓库 CI 全绿）。
+- 2026-08-22（续2）：引擎容错与降级专项测试 33 例完成并推送（brickery b6e6e8e，CI 绿）；发现既有问题 skill_library fixture 缺失（pdf-extractor 等，6 例失败）已记入待办。
 *（内容由AI生成，仅供参考）*
