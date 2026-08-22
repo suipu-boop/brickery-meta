@@ -61,6 +61,18 @@
 - 发布流程（固化）：代码改动 → 跑 `scripts/build_workbench_app.sh`（清旧重建）→ `gh release create`（/opt/homebrew/bin/gh，需写全路径）替换资产 → 网页链接不变自动生效
 - 教训：新仓库拆分后必须同步建 Release + 迁移下载链接，否则用户仍下载到旧仓库旧包
 
+## 测试协议 · 闭环快速迭代（2026-08-22 用户确立）
+
+**测试链路**（用户手动操作）：下载工坊 dmg → 打开工坊 App → 选积木组装 → 产出 agent 安装包到桌面 → 安装并测试生成 agent（安装引导 → 聊天 → 积木调用）
+
+**出错处理闭环**（用户确立的标准）：
+1. 测试中发现问题 → 定位有错的部件/环节（积木逻辑 / 内核 / 工坊后端 / 前端）
+2. **直接修改运行中的 agent** 快速验证修复（不重新走完整打包链路）
+3. 修复有效后 → **同步把有错的部件更新回网端库**（brick-vault 积木），push 前需用户确认
+4. 涉及工坊/内核代码的根因问题 → 先落盘 specs 供用户审阅，不静默改码
+
+**注意事项**：dmg 下载后若报"已损坏"= macOS Gatekeeper 拦截未签名应用（quarantine），清除即可；工坊市场直连 brick-vault，正常应显示约 17 bricks + 2 engines。
+
 ## 待办（后续推进项）
 
 - **site GitHub Pages 迁移**：brickery-workbench 仓库启用 Pages（原 suipu-boop.github.io/brickery 域名，目标 suipu-boop.github.io/brickery-workbench），当前 site/ 已在新仓库但 Pages 未启用
