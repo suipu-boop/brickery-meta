@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brickery · 导航</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --card: #1c2028;
+    --card-hover: #222732;
+    --border: #2a2f3a;
+    --text: #e8eaed;
+    --text-dim: #9aa3af;
+    --accent: #5b8cff;
+    --ok: #3ddc84;
+    --radius: 12px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+  }
+  .wrap { max-width: 720px; width: 100%; }
+  h1 { font-size: 32px; margin-bottom: 8px; }
+  .sub { color: var(--text-dim); margin-bottom: 32px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: background .15s;
+  }
+  .card:hover { background: var(--card-hover); }
+  .card .name { font-weight: 600; }
+  .card .desc { color: var(--text-dim); font-size: 13px; margin-top: 4px; }
+  a { color: var(--accent); text-decoration: none; white-space: nowrap; }
+  .footer { margin-top: 32px; color: var(--text-dim); font-size: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Brickery</h1>
+  <div class="sub">积木工坊生态导航 · 单一真源自动跟随</div>
+
+  <div class="card">
+    <div>
+      <div class="name">积木工坊 · 网页版</div>
+      <div class="desc">积木市场在线浏览、下载 .brick，App 安装包下载</div>
+    </div>
+    <a href="https://suipu-boop.github.io/brickery-workbench/">访问 →</a>
+  </div>
+
+  <div class="card">
+    <div>
+      <div class="name">brickery（内核）</div>
+      <div class="desc">生成 agent 内核仓库：brickery-runtime、vault 同步、自检更新</div>
+    </div>
+    <a href="https://github.com/suipu-boop/brickery">GitHub →</a>
+  </div>
+
+  <div class="card">
+    <div>
+      <div class="name">brick-vault（积木真源）</div>
+      <div class="desc">积木单一真源：积木清单与元数据（index.json）</div>
+    </div>
+    <a href="https://github.com/suipu-boop/brick-vault">GitHub →</a>
+  </div>
+
+  <div class="card">
+    <div>
+      <div class="name">brickery-workbench（工坊）</div>
+      <div class="desc">积木工坊 App + 下载站 + 自动发布</div>
+    </div>
+    <a href="https://github.com/suipu-boop/brickery-workbench">GitHub →</a>
+  </div>
+
+  <div class="card">
+    <div>
+      <div class="name">brickery-meta（本导航/文档）</div>
+      <div class="desc">生态架构、路线图、specs 设计文档</div>
+    </div>
+    <a href="https://github.com/suipu-boop/brickery-meta">GitHub →</a>
+  </div>
+
+  <div class="footer">Brickery · 单一真源自动跟随 · 由 GitHub Pages 自动部署</div>
+</div>
+</body>
+</html>
